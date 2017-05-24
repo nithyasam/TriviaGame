@@ -288,12 +288,12 @@ var correctDisplay = function(){
 //For questions answered incorrect
 // -----------------------------------------------------------
 var wrongDisplay = function(){
-$("#questionSection").html("<p>Oops! that was a wrong selection</p>");
-			$("#questionSection").append("<p>Correct answer is: "+ currentQuestion.answer+ "</p>");
-			image = $("<img>");
-			image.attr('src', currentQuestion.imgsrc);
-			$("#questionSection").append(image);
-			$('#option1, #option2, #option3, #option4' ).html("");
+	$("#questionSection").html("<p>Oops! that was a wrong selection</p>");
+	$("#questionSection").append("<p>Correct answer is: "+ currentQuestion.answer+ "</p>");
+	image = $("<img>");
+	image.attr('src', currentQuestion.imgsrc);
+	$("#questionSection").append(image);
+	$('#option1, #option2, #option3, #option4' ).html("");
 }
 // -----------------------------------------------------------
 //Calling initialize function
