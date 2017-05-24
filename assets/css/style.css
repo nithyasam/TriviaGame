@@ -1,0 +1,72 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	color:black;
+	line-height: 23px;
+	font-size: 18px;
+	margin-bottom: 100px;
+	background-image: url(../../assets/images/background.png);
+}
+header{
+	background-color: #4aaaa5;
+	min-width: 250px;
+	height: auto;
+	padding: 20px;
+	color: white;
+	font-size: 35px;
+	text-align: center;
+	font-family: 'Georgia', Times, 'Times New Roman', serif;
+}
+#content{
+	border: 2px solid #636363;
+	width: auto;
+	height:auto;
+	background-color: #ffffff;
+	padding: 30px;
+}
+img{
+	width: 200px;
+	height: 200px;
+}
+#questionSection{
+	color: #810000;
+	font-size: 30px;
+	padding: 20px;
+}
+#startButton{
+	width: 100%;
+	padding : 20px;
+	font-size: 25px;
+	background-color: #088DA5;
+}
+#start :hover{background-color: green;
+				color : white;}
+#restart{
+	width: 100%;
+	padding : 20px;
+	font-size: 25px;
+	background-color: #088DA5;
+}
+#restartSection :hover{background-color: green;
+				color : white;}
+#option1 button, #option2 button,
+#option3 button, #option4 button{
+	width: 100%;
+	padding : 20px;
+	font-size: 20px;
+	background-color: none;
+}
+#option1 :hover{background-color: #295350;
+				color : white;
+				}
+#option2 :hover{background-color: #295350;
+				color : white;
+				}
+#option3 :hover{background-color: #295350;
+				color : white;
+				}
+#option4 :hover{background-color: #295350;
+				color : white;
+			}
