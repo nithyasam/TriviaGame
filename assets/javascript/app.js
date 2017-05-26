@@ -13,7 +13,6 @@ var clicked;
 var entered_val;
 var image;
 var notanswered;
-
 // -----------------------------------------------------------
 // Question array objects
 // -----------------------------------------------------------
@@ -131,7 +130,30 @@ var run = function(){
 	intervalId = setInterval(display, 1000);
 }
 // -----------------------------------------------------------
-//Event handlers for the buttons
+//Event handling for the buttons
+// -----------------------------------------------------------
+var eventHandling = function(){
+	maxTime = -1;
+		clicked = true;
+		clearInterval(intervalId);
+		entered_val = $(this).text();
+		if(entered_val === currentQuestion.answer){
+			correct++;
+			correctDisplay();
+			windowTimeout = setTimeout(function(){
+				run();
+			}, 2000);
+		}
+		else{
+			wrong++;
+			wrongDisplay();
+			windowTimeout = setTimeout(function(){
+				run();
+			}, 2000);
+		}
+}
+// -----------------------------------------------------------
+//OnClick for the buttons
 // -----------------------------------------------------------
 var onClick = function(){
 	// Start Button
@@ -140,92 +162,8 @@ var onClick = function(){
 		displayQuestion();
 		run();
 	});
-	//Option1
-	$("#op1").on("click", function(){
-		maxTime = -1;
-		clicked = true;
-		clearInterval(intervalId);
-		entered_val = $("#op1").text();
-		if(entered_val === currentQuestion.answer){
-			correct++;
-			correctDisplay();
-			windowTimeout = setTimeout(function(){
-				run();
-			}, 2000);
-		}
-		else{
-			wrong++;
-			wrongDisplay();
-			windowTimeout = setTimeout(function(){
-				run();
-			}, 2000);
-		}
-
-	});
-	//Option2
-	$("#op2").on("click", function(){
-		maxTime = -1;
-		clicked = true;
-		clearInterval(intervalId);
-		entered_val = $("#op2").text();
-		if(entered_val === currentQuestion.answer){
-			correct++;
-			$("#questionSection").html("Correct!");
-			correctDisplay();
-			windowTimeout = setTimeout(function(){
-				run();
-			}, 2000);
-		}
-		else{
-			wrong++;
-			wrongDisplay();
-			windowTimeout = setTimeout(function(){
-				run();
-			}, 2000);
-		}
-	});
-	//Option3
-	$("#op3").on("click", function(){
-		maxTime = -1;
-		clicked = true;
-		clearInterval(intervalId);
-		entered_val = $("#op3").text();
-		if(entered_val === currentQuestion.answer){
-			correct++;
-			correctDisplay();
-			windowTimeout = setTimeout(function(){
-				run();
-			}, 2000);
-		}
-		else{
-			wrong++;
-			wrongDisplay();
-			windowTimeout = setTimeout(function(){
-				run();
-			}, 2000);
-		}
-	});
-	//Option4
-	$("#op4").on("click", function(){
-		maxTime = -1;
-		clicked = true;
-		clearInterval(intervalId);
-		entered_val = $("#op4").text();
-		if(entered_val === currentQuestion.answer){
-			correct++;
-			correctDisplay();
-			windowTimeout = setTimeout(function(){
-				run();
-			}, 2000);
-		}
-		else{
-			wrong++;
-			wrongDisplay();
-			windowTimeout = setTimeout(function(){
-				run();
-			}, 2000);
-		}
-	});
+	//For options
+	$(".optionClass").on("click", eventHandling);
 }
 // -----------------------------------------------------------
 //Final result display after the quiz is done
@@ -243,13 +181,13 @@ var showResult = function(){
 //Creating the option buttons
 // -----------------------------------------------------------
 var createOptions = function(cq){
-	var op1 = $("<button>").attr("id", "op1").text(cq.option1);
+	var op1 = $("<button>").addClass("optionClass").attr("id", "op1").text(cq.option1);
 	$("#option1").html(op1);
-	var op2 = $("<button>").attr("id", "op2").text(cq.option2);
+	var op2 = $("<button>").addClass("optionClass").attr("id", "op2").text(cq.option2);
 	$("#option2").html(op2);
-	var op3 = $("<button>").attr("id", "op3").text(cq.option3);
+	var op3 = $("<button>").addClass("optionClass").attr("id", "op3").text(cq.option3);
 	$("#option3").html(op3);
-	var op4 = $("<button>").attr("id", "op4").text(cq.option4);
+	var op4 = $("<button>").addClass("optionClass").attr("id", "op4").text(cq.option4);
 	$("#option4").html(op4);
 	onClick();
 }
